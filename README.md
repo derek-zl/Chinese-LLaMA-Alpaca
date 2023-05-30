@@ -2,7 +2,7 @@
 
 <p align="center">
     <br>
-    <img src="./pics/banner.png" width="600"/>
+    <img src="./pics/banner.png" width="700"/>
     <br>
 </p>
 <p align="center">
@@ -10,7 +10,7 @@
     <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/ymcui/Chinese-LLaMA-Alpaca">
     <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/ymcui/Chinese-LLaMA-Alpaca">
     <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/ymcui/Chinese-LLaMA-Alpaca">
-    <a href="https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki"><img alt="GitHub wiki" src="https://img.shields.io/badge/Github%20Wiki-v3.1-green"></a>
+    <a href="https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki"><img alt="GitHub wiki" src="https://img.shields.io/badge/Github%20Wiki-v3.2-green"></a>
 </p>
 
 
@@ -23,8 +23,9 @@
 
 - 🚀 针对原版LLaMA模型扩充了中文词表，提升了中文编解码效率 
 - 🚀 开源了使用中文文本数据预训练的中文LLaMA以及经过指令精调的中文Alpaca
+- 🚀 开源了预训练脚本、指令精调脚本，用户可根据需要自行进一步训练
 - 🚀 快速使用笔记本电脑（个人PC）的CPU/GPU本地量化和部署体验大模型
-- 🚀 支持[🤗transformers](https://github.com/huggingface/transformers), [llama.cpp](https://github.com/ggerganov/llama.cpp), [text-generation-webui](https://github.com/oobabooga/text-generation-webui), [LlamaChat](https://github.com/alexrozanski/LlamaChat)等生态
+- 🚀 支持[🤗transformers](https://github.com/huggingface/transformers), [llama.cpp](https://github.com/ggerganov/llama.cpp), [text-generation-webui](https://github.com/oobabooga/text-generation-webui), [LlamaChat](https://github.com/alexrozanski/LlamaChat), [LangChain](https://github.com/hwchase17/langchain), [privateGPT](https://github.com/imartinez/privateGPT)等生态
 - 目前已开源的模型版本：7B（标准版、**Plus版**）、13B（标准版、**Plus版**）
 
 💡 下图是中文Alpaca-7B模型在本地CPU量化部署后的实际体验效果（GIF未加速，M1 Max下实测）。
@@ -37,9 +38,14 @@
 
 ## 新闻
 
-**[2023/05/10] [v3.1版本](https://github.com/ymcui/Chinese-LLaMA-Alpaca/releases/tag/v3.1): 发布中文LLaMA/Alpaca Plus-13B，使用了更大的语料进行训练，相比基础版各项能力显著提升。**
+**[2023/05/16] [v3.2版本](https://github.com/ymcui/Chinese-LLaMA-Alpaca/releases/tag/v3.2): 添加指令精调脚本、LangChain支持、基于Gradio的本地Demo等。**
+
+[2023/05/10] [v3.1版本](https://github.com/ymcui/Chinese-LLaMA-Alpaca/releases/tag/v3.1): 发布中文LLaMA/Alpaca Plus-13B，使用了更大语料训练，相比基础版各项能力显著提升。
 
 [2023/04/28] [v3.0版本](https://github.com/ymcui/Chinese-LLaMA-Alpaca/releases/tag/v3.0): 发布中文LLaMA/Alpaca Plus版本（7B），使用了更大的语料进行训练，相比基础版各项能力显著提升。另外还进一步完善了评测流程、添加了预训练脚本等。
+
+<details>
+<summary><b>往期新闻</b></summary>
 
 [2023/04/18] [v2.2版本](https://github.com/ymcui/Chinese-LLaMA-Alpaca/releases/tag/v2.2)：添加LlamaChat支持、中文词表、LLaMA Tokenizer词表扩充脚本、添加技术报告等。
 
@@ -47,10 +53,10 @@
 
 [2023/04/07] [v2.0版本](https://github.com/ymcui/Chinese-LLaMA-Alpaca/releases/tag/v2.0)：发布13B版本中文LLaMA、Alpaca大模型，主要升级：更强的事实性、文本问答、翻译、伦理拒答等能力全面提升。
 
-<details>
-<summary><b>往期新闻</b></summary>
 [2023/04/03] 添加了模型合并和量化的notebook，Colab Pro(+)用户可在线合并和下载模型。请参考：[合并模型](#合并模型)
+
 [2023/03/31] Release v1.1：简化模型合并步骤、添加指令数据爬取脚本、关于新版本llama.cpp的重要提示。请参考：[Release Note](https://github.com/ymcui/Chinese-LLaMA-Alpaca/releases/tag/v1.1)
+
 [2023/03/28] 正式开源中文LLaMA、Alpaca大模型，目前提供7B版本下载体验
 </details>
 
@@ -82,6 +88,7 @@ Facebook官方发布的[LLaMA模型禁止商用](https://github.com/facebookrese
 | :-------------------- | ------------------------------------------------------ | ------------------------------------------------------------ |
 | 训练方式              | 传统CLM                            | 指令精调                                                     |
 | 训练语料 | 无标注通用语料 | 有标注指令数据 |
+| 词表大小<sup>[3]</sup> | 4995**3** | 4995**4**=49953+1（pad token） |
 | 输入模板              | 不需要                                                 | 需要符合模板要求<sup>[1]</sup> |
 | 适用场景 ✔️            | 文本续写：给定上文内容，让模型继续写下去，生成下文            | 1、指令理解（问答、写作、建议等）<br/>2、多轮上下文理解（聊天等） |
 | 不适用场景 ❌          | 指令理解 、多轮聊天等                                  |  文本无限制自由生成                                                       |
@@ -89,10 +96,13 @@ Facebook官方发布的[LLaMA模型禁止商用](https://github.com/facebookrese
 | text-generation-webui |  不适合chat模式                              |    使用`--cpu`可在无显卡形式下运行，若生成内容不满意，建议修改prompt                                                          |
 | LlamaChat             | 加载模型时选择"LLaMA"                                  | 加载模型时选择"Alpaca"                                       |
 | [HF推理代码](./scripts/inference_hf.py) | 无需添加额外启动参数 | 启动时添加参数 `--with_prompt`        |
+| [web-demo代码](./scripts/gradio_demo.py) | 不适用 | 直接提供Alpaca模型位置即可；支持多轮对话 |
+| [LangChain示例](./scripts/langchain_demo) / privateGPT | 不适用 | 直接提供Alpaca模型位置即可 |
 | 已知问题              | 如果不控制终止，则会一直写下去，直到达到输出长度上限。<sup>[2]</sup> | 目前版本模型生成的文本长度相对短一些，比较惜字如金。可在指令中要求详细回答。<sup>[2]</sup> |
 
-*[1] llama.cpp/LlamaChat/[HF推理代码](./scripts/inference_hf.py)等已内嵌，无需手动添加模板。*<br/>
-*[2] 如果出现了模型回答质量特别低、胡言乱语、不理解问题等情况，请检查是否针对场景使用了正确的模型和正确的启动参数。*
+*[1] llama.cpp/LlamaChat/[HF推理代码](./scripts/inference_hf.py)/[web-demo代码](./scripts/gradio_demo.py)/[LangChain示例](./scripts/langchain_demo)等已内嵌，无需手动添加模板。*<br/>
+*[2] 如果出现了模型回答质量特别低、胡言乱语、不理解问题等情况，请检查是否针对场景使用了正确的模型和正确的启动参数。*<br/>
+*[3] 经过指令精调的Alpaca会比LLaMA多一个pad token，**因此请勿混用LLaMA/Alpaca词表**。*
 
 
 ### 中文LLaMA模型
@@ -180,9 +190,13 @@ chinese_llama_lora_7b/
 | 推理和部署方式                                               | 特点                                         | 平台  | CPU  | GPU  | 量化加载 | 图形界面 |                             教程                             |
 | :----------------------------------------------------------- | -------------------------------------------- | :---: | :--: | :--: | :------: | :------: | :----------------------------------------------------------: |
 | [**llama.cpp**](https://github.com/ggerganov/llama.cp)       | 丰富的量化选项和高效本地推理                 | 通用  |  ✅   |  ✅   |    ✅     |    ❌     | [链接](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/llama.cpp量化部署) |
-| [**🤗Transformers**](https://github.com/huggingface/transformers) | 原生transformers推理接口                     | 通用  |  ✅   |  ✅   |    ✅     |    ❌     | [链接](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/使用Transformers推理) |
+| [**🤗Transformers**](https://github.com/huggingface/transformers) | 原生transformers推理接口                     | 通用  |  ✅   |  ✅   |    ✅     |    ✅     | [链接](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/使用Transformers推理) |
 | [**text-generation-webui**](https://github.com/oobabooga/text-generation-webui) | 前端Web UI界面的部署方式                     | 通用  |  ✅   |  ✅   |    ✅     |    ✅     | [链接](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/使用text-generation-webui搭建界面) |
 | [**LlamaChat**](https://github.com/alexrozanski/LlamaChat)   | macOS下的图形交互界面（需搭配llama.cpp模型） | MacOS |  ✅   |  ❌   |    ✅     |    ✅     | [链接](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/使用LlamaChat图形界面（macOS）) |
+| [**LangChain**](https://github.com/hwchase17/langchain)      | LLM应用开发框架，适用于进行二次开发          | 通用  | ✅<sup>†</sup> |  ✅   | ✅<sup>†</sup> |    ❌     | [链接](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/与LangChain进行集成) |
+| [**privateGPT**](https://github.com/imartinez/privateGPT) | 基于LangChain的多文档本地问答框架 | 通用 | ✅ | ✅ | ✅ | ❌ | [链接](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/使用privateGPT进行多文档问答) |
+
+<sup>†</sup>: LangChain框架支持，但教程中未实现；详细说明请参考LangChain官方文档。
 
 具体内容请参考本项目 >>> [📚 GitHub Wiki](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/模型推理与部署)
 
@@ -212,6 +226,10 @@ chinese_llama_lora_7b/
 
 - 本项目的模型均在原LLaMA词表的基础上扩充了中文单词，代码请参考[merge_tokenizers.py](scripts/merge_tokenizers.py)
 - 预训练和指令精调代码参考了🤗transformers中的[run_clm.py](https://github.com/huggingface/transformers/blob/main/examples/pytorch/language-modeling/run_clm.py)和[Stanford Alpaca](https://github.com/tatsu-lab/stanford_alpaca)项目中数据集处理的相关部分
+- 已开源用于预训练和指令精调的训练脚本：
+  - 预训练脚本：[scripts/run_clm_pt_with_peft.py](https://github.com/ymcui/Chinese-LLaMA-Alpaca/blob/main/scripts/run_clm_pt_with_peft.py)，相关使用教程请参考[预训练脚本Wiki](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/预训练脚本)
+  - 指令精调脚本：[scripts/run_clm_sft_with_peft.py](https://github.com/ymcui/Chinese-LLaMA-Alpaca/blob/main/scripts/run_clm_sft_with_peft.py)，相关使用教程请参考[指令精调脚本Wiki](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/指令精调脚本)
+
 
 具体内容请参考本项目 >>> [📚 GitHub Wiki](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/训练细节)
 
@@ -264,7 +282,7 @@ FAQ中给出了常见问题的解答，请在提Issue前务必先查看FAQ。
 | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
 | [LLaMA by Facebook](https://github.com/facebookresearch/llama)<br/>[Alpaca by Stanford](https://github.com/tatsu-lab/stanford_alpaca)<br/>[alpaca-lora by @tloen](https://github.com/tloen/alpaca-lora) | [llama.cpp by @ggerganov](https://github.com/ggerganov/llama.cpp)<br/>[LlamaChat by @alexrozanski]( https://github.com/alexrozanski/LlamaChat)<br/>[text-generation-webui by @oobabooga](https://github.com/oobabooga/text-generation-webui) | [pCLUE and MT data by @brightmart](https://github.com/brightmart/nlp_chinese_corpus) |
 
-Episode: Logo中的小羊驼是由[midjourney](http://midjourney.com)自动生成，并由Mac自带的预览工具自动抠出来的。
+Episode: The current logo is automatically generated by GPT-4 with the DALL·E plugin (previously generated by midjourney).
 
 ## 免责声明
 

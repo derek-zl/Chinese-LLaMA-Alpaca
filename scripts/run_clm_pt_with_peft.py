@@ -303,7 +303,7 @@ class MyTrainingArguments(TrainingArguments):
     lora_rank : Optional[int] = field(default=8)
     lora_dropout : Optional[float] = field(default=0.1)
     lora_alpha : Optional[float] = field(default=32.)
-    modules_to_save : Optional[str] = field(default='embed_tokens,lm_head')
+    modules_to_save : Optional[str] = field(default=None)
     debug_mode : Optional[bool] = field(default=False)
     peft_path : Optional[str] = field(default=None)
 
@@ -541,12 +541,14 @@ def main():
     else:
         logger.info("Init new peft model")
         target_modules = training_args.trainable.split(',')
-        modules_to_save = training_args.modules_to_save.split(',')
+        modules_to_save = training_args.modules_to_save
+        if modules_to_save is not None:
+            modules_to_save = modules_to_save.split(',')
         lora_rank = training_args.lora_rank
         lora_dropout = training_args.lora_dropout
         lora_alpha = training_args.lora_alpha
-        print(target_modules)
-        print(lora_rank)
+        logger.info(f"target_modules: {target_modules}")
+        logger.info(f"lora_rank: {lora_rank}")
         peft_config = LoraConfig(
             task_type=TaskType.CAUSAL_LM,
             target_modules=target_modules,
@@ -595,6 +597,16 @@ def main():
         trainer.log_metrics("train", metrics)
         trainer.save_metrics("train", metrics)
         trainer.save_state()
+
+    import shutil
+    from transformers.modeling_utils import unwrap_model
+    lora_path=os.path.join(training_args.output_dir,'pt_lora_model')
+    os.makedirs(lora_path, exist_ok=True)
+    unwrap_model(model).peft_config['default'].save_pretrained(lora_path)
+    shutil.copyfile(
+        os.path.join(training_args.output_dir,'pytorch_model.bin'),
+        os.path.join(lora_path,'adapter_model.bin'))
+    tokenizer.save_pretrained(lora_path)
 
     # Evaluation
     if training_args.do_eval:

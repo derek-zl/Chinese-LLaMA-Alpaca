@@ -2,7 +2,7 @@
 
 <p align="center">
     <br>
-    <img src="./pics/banner.png" width="600"/>
+    <img src="./pics/banner.png" width="700"/>
     <br>
 </p>
 <p align="center">
@@ -10,7 +10,7 @@
     <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/ymcui/Chinese-LLaMA-Alpaca">
     <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/ymcui/Chinese-LLaMA-Alpaca">
     <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/ymcui/Chinese-LLaMA-Alpaca">
-    <a href="https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki"><img alt="GitHub wiki" src="https://img.shields.io/badge/Github%20Wiki-v3.1-green"></a>
+    <a href="https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki"><img alt="GitHub wiki" src="https://img.shields.io/badge/Github%20Wiki-v3.2-green"></a>
 </p>
 
 
@@ -23,8 +23,9 @@ To promote open research of large models in the Chinese NLP community, this proj
 
 - 🚀 Extended Chinese vocabulary on top of original LLaMA with significant encode/decode efficiency
 - 🚀 Open-sourced the Chinese LLaMA (general purpose) and Alpaca (instruction-tuned)   (7B, 13B)
+- 🚀 Open-sourced the pre-training and instruction finetuning (SFT) scripts for further tuning on user's data
 - 🚀 Quickly deploy and experience the quantized version of the large model on CPU/GPU of your laptop (personal PC) 
-- 🚀 Support [🤗transformers](https://github.com/huggingface/transformers), [llama.cpp](https://github.com/ggerganov/llama.cpp), [text-generation-webui](https://github.com/oobabooga/text-generation-webui), [LlamaChat](https://github.com/alexrozanski/LlamaChat), etc.
+- 🚀 Support [🤗transformers](https://github.com/huggingface/transformers), [llama.cpp](https://github.com/ggerganov/llama.cpp), [text-generation-webui](https://github.com/oobabooga/text-generation-webui), [LlamaChat](https://github.com/alexrozanski/LlamaChat), [LangChain](https://github.com/hwchase17/langchain), , [privateGPT](https://github.com/imartinez/privateGPT), etc.
 - Released versions: 7B (basic, **Plus**), 13B (basic, **Plus**)
 
 💡 The following image shows the actual experience effect of the 7B version model after local deployment (animation unaccelerated, tested on Apple M1 Max).
@@ -37,22 +38,24 @@ To promote open research of large models in the Chinese NLP community, this proj
 
 ## News
 
-**[2023/05/10] [Release v3.1](https://github.com/ymcui/Chinese-LLaMA-Alpaca/releases/tag/v3.1): LLaMA/Alpaca Plus 13B versions are available, more training data used than basic ones. **
+**[May 16, 2023] [Release v3.2](https://github.com/ymcui/Chinese-LLaMA-Alpaca/releases/tag/v3.2): Add SFT scripts, LangChain supports, Gradio-based web demo, etc.**
 
-[2023/04/28] [Release v3.0](https://github.com/ymcui/Chinese-LLaMA-Alpaca/releases/tag/v3.0): LLaMA/Alpaca Plus versions are available, more training data used than basic ones. 
+[May 10, 2023] [Release v3.1](https://github.com/ymcui/Chinese-LLaMA-Alpaca/releases/tag/v3.1): LLaMA/Alpaca Plus 13B versions are available, more training data used than basic ones.
 
-[2023/04/18] Release v2.2: Add LlamaChat support (macOS UI), tokenizer merging scripts, documentations are migrated to GitHub Wiki. Refer to [Release Note](https://github.com/ymcui/Chinese-LLaMA-Alpaca/releases/tag/v2.2)
-
-[2023/04/13] Release v2.1: Add HuggingFace-transformers and text-generation-webui interfances. Refer to [Release Note](https://github.com/ymcui/Chinese-LLaMA-Alpaca/releases/tag/v2.1)
-
-[2023/04/07] Release v2.0: Release 13B versions of Chinese LLaMA and Alpaca model. Main upgrades: stronger factuality, better performance on QA, translation and more. Refer to [Release Note](https://github.com/ymcui/Chinese-LLaMA-Alpaca/releases/tag/v2.0)
+[Apr 28, 2023] [Release v3.0](https://github.com/ymcui/Chinese-LLaMA-Alpaca/releases/tag/v3.0): LLaMA/Alpaca Plus versions are available, more training data used than basic ones. 
 
 <details>
 <summary><b>Previous News</b></summary>
 
-2023/3/31 Release v1.1, major updates: simplification of model merging steps, addition of instruction data crawling script, and important notes about the new version of llama.cpp. See [Release Note](https://github.com/ymcui/Chinese-LLaMA-Alpaca/releases/tag/v1.1).
+[Apr 18, 2023] Release v2.2: Add LlamaChat support (macOS UI), tokenizer merging scripts, documentations are migrated to GitHub Wiki. Refer to [Release Note](https://github.com/ymcui/Chinese-LLaMA-Alpaca/releases/tag/v2.2)
 
-2023/3/28  Open-sourcing Chinese LLaMA and Alpaca, currently offering the 7B version for download and experience 
+[Apr 13, 2023] Release v2.1: Add HuggingFace-transformers and text-generation-webui interfances. Refer to [Release Note](https://github.com/ymcui/Chinese-LLaMA-Alpaca/releases/tag/v2.1)
+
+[Apr 07, 2023] Release v2.0: Release 13B versions of Chinese LLaMA and Alpaca model. Main upgrades: stronger factuality, better performance on QA, translation and more. Refer to [Release Note](https://github.com/ymcui/Chinese-LLaMA-Alpaca/releases/tag/v2.0)
+
+[Mar 31, 2023] Release v1.1, major updates: simplification of model merging steps, addition of instruction data crawling script, and important notes about the new version of llama.cpp. See [Release Note](https://github.com/ymcui/Chinese-LLaMA-Alpaca/releases/tag/v1.1).
+
+[Mar 28, 2023]  Open-sourcing Chinese LLaMA and Alpaca, currently offering the 7B version for download and experience 
 
 </details>
 
@@ -72,7 +75,7 @@ To promote open research of large models in the Chinese NLP community, this proj
 
 ### ⚠️ User Notice (Must Read)
 
-The official [LLaMA models released by Facebook prohibits commercial use](https://github.com/facebookresearch/llama), and the official model weights have not been open-sourced (although there are many third-party download links available online). In order to comply with the relevant licenses, it is currently not possible to release the complete model weights. We appreciate your understanding. After Facebook fully opens up the model weights, this project will update its policies accordingly. **What is released here are the LoRA weights**, which can be seen as a "patch" for the original LLaMA model, and the complete weights can be obtained by merging the two.
+The official [LLaMA models released by Facebook prohibit commercial use](https://github.com/facebookresearch/llama), and the official model weights have not been open-sourced (although there are many third-party download links available online). In order to comply with the relevant licenses, it is currently not possible to release the complete model weights. We appreciate your understanding. After Facebook fully opens up the model weights, this project will update its policies accordingly. **What is released here are the LoRA weights**, which can be seen as a "patch" for the original LLaMA model, and the complete weights can be obtained by merging the two.
 
 ### Which model should I use?
 
@@ -80,21 +83,27 @@ The following table provides a basic comparison of the Chinese LLaMA and Alpaca 
 
 💡 **Plus versions** are trained on more data, which is highly recommended for use.
 
-| Comparison Item        | Chinese LLaMA                                                | Chinese Alpaca                                               |
-| ---------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Training Method        | Traditional CLM (trained on general corpus)                  | Instruction Fine-tuning (trained on instruction data)        |
-| Input Template         | Not required                                                 | Must meet template requirements<sup>[1]</sup>                |
-| Suitable Scenarios ✔️   | Text continuation: Given a context, let the model continue writing | 1. Instruction understanding (Q&A, writing, advice, etc.)<br/>2. Multi-turn context understanding (chat, etc.) |
-| Unsuitable Scenarios ❌ | Instruction understanding, multi-turn chat, etc.             | Unrestricted free text generation                            |
-| llama.cpp              | Use `-p` parameter to specify context                        | Use `-ins` parameter to enable instruction understanding + chat mode |
-| text-generation-webui  | Not suitable for chat mode                                   | Use `--cpu` to run without a GPU; if not satisfied with generated content, consider modifying prompt |
-| LlamaChat              | Choose "LLaMA" when loading the model                        | Choose "Alpaca" when loading the model                       |
-| inference_hf.py        | No additional startup parameters required                    | Add `--with_prompt` parameter when launching                 |
-| Known Issues           | If not controlled for termination, it will continue writing until reaching the output length limit.<sup>[2]</sup> | Current version of the model generates relatively shorter texts, being more concise.<sup>[2]</sup> |
+| Comparison Item                                         | Chinese LLaMA                                                | Chinese Alpaca                                               |
+| ------------------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Training Method                                         | Traditional CLM (trained on general corpus)                  | Instruction Fine-tuning (trained on instruction data)        |
+| Training Data                                           | unsupervised free text                                       | supervised instruction data                                  |
+| Vocab size<sup>[3]</sup>                                | 4995**3**                                                    | 4995**4**=49953+1 (pad token)                                |
+| Input Template                                          | Not required                                                 | Must meet template requirements<sup>[1]</sup>                |
+| Suitable Scenarios ✔️                                    | Text continuation: Given a context, let the model continue writing | 1. Instruction understanding (Q&A, writing, advice, etc.)<br/>2. Multi-turn context understanding (chat, etc.) |
+| Unsuitable Scenarios ❌                                  | Instruction understanding, multi-turn chat, etc.             | Unrestricted free text generation                            |
+| llama.cpp                                               | Use `-p` parameter to specify context                        | Use `-ins` parameter to enable instruction understanding + chat mode |
+| text-generation-webui                                   | Not suitable for chat mode                                   | Use `--cpu` to run without a GPU; if not satisfied with generated content, consider modifying prompt |
+| LlamaChat                                               | Choose "LLaMA" when loading the model                        | Choose "Alpaca" when loading the model                       |
+| [inference_hf.py](./scripts/inference_hf.py)            | No additional startup parameters required                    | Add `--with_prompt` parameter when launching                 |
+| [web-demo](./scripts/gradio_demo.py)                    | Not applicable                                               | Simply provide the Alpaca model location; support multi-turn conversations |
+| [LangChain-demo](./scripts/langchain_demo) / privateGPT | Not applicable                                               | Simply provide the Alpaca model location                     |
+| Known Issues                                            | If not controlled for termination, it will continue writing until reaching the output length limit.<sup>[2]</sup> | Current version of the model generates relatively shorter texts, being more concise.<sup>[2]</sup> |
 
-*[1] Templates are built-in for (llama.cpp/LlamaChat/[inference_hf.py](./scripts/inference_hf.py).*
+*[1] Templates are built-in for (llama.cpp/LlamaChat/[inference_hf.py](./scripts/inference_hf.py)/[web-demo](./scripts/gradio_demo.py)/[LangChain-demo](./scripts/langchain_demo).*
 
 *[2] If you encounter issues such as low-quality model responses, nonsensical answers, or failure to understand questions, please check whether you are using the correct model and startup parameters for the scenario.*
+
+*[3] Alpaca model has an additional pad token in vocabulary than LLaMA. **Please do not mix LLaMA/Alpaca tokenizers**.*
 
 
 ### Chinese LLaMA
@@ -184,9 +193,13 @@ We mainly provide the following three ways for inference and local deployment.
 | Method                                                       | Features                                                     | Platform | CPU  | GPU  | Quantization |  UI  |                           Tutorial                           |
 | :----------------------------------------------------------- | ------------------------------------------------------------ | :------: | :--: | :--: | :----------: | :--: | :----------------------------------------------------------: |
 | [**llama.cpp**](https://github.com/ggerganov/llama.cp)       | a tool for quantizing model and deploying on local CPU       | General  |  ✅   |  ✅   |      ✅       |  ❌   | [link](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/llama.cpp-Deployment) |
-| [**🤗Transformers**](https://github.com/huggingface/transformers) | original transformers inference method, support CPU/GPU      | General  |  ✅   |  ✅   |      ✅       |  ❌   | [link](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Inference-with-Transformers) |
+| [**🤗Transformers**](https://github.com/huggingface/transformers) | original transformers inference method, support CPU/GPU      | General  |  ✅   |  ✅   |      ✅       |  ✅   | [link](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Inference-with-Transformers) |
 | [**text-generation-webui**](https://github.com/oobabooga/text-generation-webui) | a tool for deploying model as a web UI                       | General  |  ✅   |  ✅   |      ✅       |  ✅   | [link](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/text-generation-webui) |
 | [**LlamaChat**](https://github.com/alexrozanski/LlamaChat)   | a macOS app that allows you to chat with LLaMA, Alpaca, etc. |  MacOS   |  ✅   |  ❌   |      ✅       |  ✅   | [link](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Using-LlamaChat-Interface) |
+| [**LangChain**](https://github.com/hwchase17/langchain)      | LLM application development framework, suitable for secondary development | General | ✅<sup>†</sup> |  ✅   | ✅<sup>†</sup> |    ❌     | [link](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Integrated-with-LangChain) |
+| [**privateGPT**](https://github.com/imartinez/privateGPT) | LangChain-based multi-document QA framework | General | ✅ | ✅ | ✅ | ❌ | [link](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Use-privateGPT-for-multi-document-QA) |
+
+<sup>†</sup>: Supported by LangChain, but not implemented in the tutorial. Please refer to the official LangChain Documentation for details.
 
 Related documentation has been moved to the project's >>> [📚GitHub Wiki](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Model-Inference-and-Deployment).
 
@@ -213,6 +226,12 @@ In order to quickly evaluate the actual performance of related models, this proj
 ## Training Details
 
 The entire training process includes three parts: vocabulary expansion, pre-training, and instruction fine-tuning. Please refer to [merge_tokenizers.py](scripts/merge_tokenizers.py) for vocabulary expansion; refer to [run_clm.py](https://github.com/huggingface/transformers/blob/main/examples/pytorch/language-modeling/run_clm.py) in 🤗transformers and the relevant parts of dataset processing in the [Stanford Alpaca](https://github.com/tatsu-lab/stanford_alpaca) project for pre-training and self-instruct fine-tuning.
+
+We have open-sourced the scripts for pre-training and instruction finetuning (SFT): 
+
+- Pre-training: [scripts/run_clm_pt_with_peft.py](https://github.com/ymcui/Chinese-LLaMA-Alpaca/blob/main/scripts/run_clm_pt_with_peft.py), refer to [Pre-training Wiki](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Pretraining-Script)
+
+- Instruction Finetuning: [scripts/run_clm_sft_with_peft.py](https://github.com/ymcui/Chinese-LLaMA-Alpaca/blob/main/scripts/run_clm_sft_with_peft.py), refer to [SFT Wiki](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/SFT-Script)
 
 Please refer to our  >>> [📚GitHub Wiki](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Training-Details).
 
@@ -245,7 +264,7 @@ Although the models in this project have significantly improved Chinese understa
 
 ## Citation
 
-If you find the model, data, code in our project useful, please consider cite our work as follows: https://arxiv.org/abs/2304.08177
+If you find the model, data, code in our project useful, please consider citing our work as follows: https://arxiv.org/abs/2304.08177
 
 ```
 @article{chinese-llama-alpaca,
@@ -265,7 +284,7 @@ This project is based on the following open-source projects for secondary develo
 | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
 | [LLaMA by Facebook](https://github.com/facebookresearch/llama)<br/>[Alpaca by Stanford](https://github.com/tatsu-lab/stanford_alpaca)<br/>[alpaca-lora by @tloen](https://github.com/tloen/alpaca-lora) | [llama.cpp by @ggerganov](https://github.com/ggerganov/llama.cpp)<br/>[LlamaChat by @alexrozanski]( https://github.com/alexrozanski/LlamaChat)<br/>[text-generation-webui by @oobabooga](https://github.com/oobabooga/text-generation-webui) | [pCLUE and translation data by @brightmart](https://github.com/brightmart/nlp_chinese_corpus) |
 
-Episode: The Alpaca Logo is generated by [midjourney](http://midjourney.com) and is automatically extracted by Preview in MacOS.
+Episode: The current logo is automatically generated by GPT-4 with the DALL·E plugin (previously generated by midjourney).
 
 ## Disclaimer
 
